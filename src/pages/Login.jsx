@@ -1,18 +1,35 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaRegEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 import { useState } from "react";
 import { toast } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 import loginImg from "../../public/images/login.jpg"
-const Login = () => {
-    const [show, setShow] = useState(false);
 
+const Login = () => {
+    const navigate = useNavigate();
+
+    const [show, setShow] = useState(false);
     const handleToggle = () => {
         setShow(!show);
     }
+
     const handleSubmit = (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const user = form.nameOrEmail.value;
+        const pass = form.password.value;
         
+        if(!user){
+            toast.error("Provide Your Username or Email")
+            return
+        }
+        else if(!pass){
+            toast.error("Provide Your Account Password")
+            return
+        }
+        toast.success("Successfully Logged In")
+        navigate('/dashboard')
     }
     return (
         <div className="flex flex-col lg:flex-row justify-between items-center w-full rounded-md sm:p-10 mt-5">
@@ -27,8 +44,8 @@ const Login = () => {
                 <form onSubmit={handleSubmit} className="space-y-12">
                     <div className="space-y-4">
                         <div>
-                            <label className="block mb-2 text-sm font-medium">Email address</label>
-                            <input type="email" name="email" placeholder="Your Email Address"                             
+                            <label className="block mb-2 text-sm font-medium">Username/Email address</label>
+                            <input type="text" name="nameOrEmail" placeholder="Username or Email Address"                             
                                 className="w-full px-3 py-2 border rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800" />
                         </div>
                         
@@ -38,7 +55,9 @@ const Login = () => {
                                 <a href="#" className="text-xs hover:underline text-[#c46d14] font-semibold">Forgot password?</a>
                             </div>
                             <input type={show ? "text" : "password"} name="password" placeholder="********" 
-                                className="w-full px-3 py-2 border rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800" />
+                                className="w-full px-3 py-2 border rounded-md dark:border-gray-300 
+                                dark:bg-gray-50 dark:text-gray-800" />
+                            {/* Toggle button to see/hide password */}
                             <div className="absolute top-10 right-4 text-lg" onClick={handleToggle}>
                                 {show ? <FaEyeSlash /> : <FaRegEye />}
                             </div>

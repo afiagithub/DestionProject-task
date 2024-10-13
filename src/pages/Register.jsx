@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaRegEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 import { useState } from "react";
@@ -8,6 +8,8 @@ import regImg from "/images/sign-up1.jpg"
 import * as Yup from 'yup';
 
 const Register = () => {
+    const navigate = useNavigate();
+
     const [show, setShow] = useState(false);
     const handleToggle = () => {
         setShow(!show);
@@ -15,6 +17,7 @@ const Register = () => {
 
     const [error, setError] = useState({})
 
+    // Schema for form validation using Yup
     const validationSchema = Yup.object({
         username: Yup.string().required("Username is required"),
         email: Yup.string().email("Invalid Email").required("Email is required"),
@@ -29,7 +32,7 @@ const Register = () => {
         e.preventDefault();
         try {
             const form = e.target;
-
+            // user data object
             const userData = {
                 username: form.userName.value,
                 email: form.email.value,
@@ -37,16 +40,20 @@ const Register = () => {
                 confirmPass: form.conPassword.value
             }
             console.log(userData);
+            // validating form according to schema
             await validationSchema.validate(userData, {abortEarly: false});
+            // reset the error list if form properly validated
             setError({})
+            toast.success("Successfully Registered")
+            navigate('/dashboard')
         } catch (error) {
-            const newError = {}
-            
+            const newErrors = {}
+            // Set all the errors using loop
             error.inner.forEach(err => {
-                newError[err.path] = err.message
+                newErrors[err.path] = err.message
             });
 
-            setError(newError)
+            setError(newErrors)
         }
     }
     return (
@@ -81,7 +88,9 @@ const Register = () => {
                                 <label className="text-sm font-medium">Password</label>
                             </div>
                             <input type={show ? "text" : "password"} name="password" placeholder="********"
-                                className="w-full px-3 py-2 border rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800" />
+                                className="w-full px-3 py-2 border rounded-md dark:border-gray-300 
+                                dark:bg-gray-50 dark:text-gray-800" />
+                            {/* Toggle button to see/hide password */}
                             <div className="absolute top-10 right-4 text-lg" onClick={handleToggle}>
                                 {show ? <FaEyeSlash /> : <FaRegEye />}
                             </div>
@@ -97,6 +106,7 @@ const Register = () => {
                         </div>
                         {error.confirmPass && <span className="text-red-700 font-semibold">{error.confirmPass}</span>}
                     </div>
+
                     <div className="space-y-2">
                         <div>
                             <input type="submit" value="Sign Up"
