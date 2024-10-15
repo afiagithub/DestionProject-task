@@ -14,7 +14,8 @@ const DashboardMenu = () => {
     return (
         <div className="flex flex-col">
             <div>
-                <h2 className="text-2xl font-bold mb-5">Welcome Back, User</h2>
+                <h2 className="text-2xl font-bold mb-5">ProjectBucket</h2>
+                <p className="text-xl font-bold mb-5">Welcome back, User</p>
                 <hr />
                 <ul className="font-semibold space-y-2 font-nun my-4">
                     <li><Link to='/dashboard'>Dashboard</Link></li>

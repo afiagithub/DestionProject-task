@@ -5,6 +5,7 @@ import Register from "../pages/Register";
 import UserDashboard from "../components/UserDashboard";
 import DashboardLayout from "../layouts/DashboardLayout";
 import Profile from "../components/Profile";
+import UpdateProfile from "../components/UpdateProfile";
 
 export const router = createBrowserRouter([
     {
@@ -32,6 +33,10 @@ export const router = createBrowserRouter([
             {
                 path: 'profile',
                 element: <Profile/>
+            },
+            {
+                path: 'update',
+                element: <UpdateProfile/>
             }
         ]
     }
