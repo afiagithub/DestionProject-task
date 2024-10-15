@@ -4,7 +4,7 @@ import { FaEyeSlash } from "react-icons/fa";
 import { useState } from "react";
 import { toast } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
-import loginImg from "../../public/images/login.jpg"
+import loginImg from "/images/login.jpg"
 
 const Login = () => {
     const navigate = useNavigate();

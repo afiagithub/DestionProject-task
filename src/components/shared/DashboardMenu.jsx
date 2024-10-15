@@ -1,0 +1,30 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { IoLogInOutline } from "react-icons/io5";
+import { toast } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
+
+const DashboardMenu = () => {
+    return (
+        <div className="flex flex-col justify-between">
+            <div>
+                <h2 className="text-2xl font-bold mb-5">Welcome Back, User</h2>
+                <hr />
+                <ul className="font-semibold space-y-2 font-nun my-4">
+                    <li><Link to='/dashboard/profile'>Dashboard</Link></li>
+                    <li><Link to='/dashboard/all-users'>User Profile</Link></li>
+                    <li><Link to='/dashboard/add-test'>Settings</Link></li>
+                </ul>
+            </div>
+            <div>
+                <hr />
+                <ul className="font-semibold space-y-2 font-nun my-4">
+                    <li><Link to={'/'} className="flex flex-row items-center gap-2">
+                        LogOut <IoLogInOutline className="text-xl" /></Link></li>
+                </ul>
+            </div>
+        </div>
+    );
+};
+
+export default DashboardMenu;
