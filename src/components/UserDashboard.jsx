@@ -1,9 +1,13 @@
 import React from 'react';
 import ProgressCard from './shared/ProgressCard';
+import { Helmet } from 'react-helmet-async';
 
 const UserDashboard = () => {
     return (
-        <div className='p-10 flex flex-row justify-around'>
+        <div className='p-10 flex flex-col lg:flex-row justify-around gap-10 lg:gap-0'>
+            <Helmet>
+                <title>ProjectBucket | Dashboard</title>
+            </Helmet>
             <div className='space-y-3'>
                 <h2 className='font-nun text-xl font-semibold'>In Progress</h2>
                 <hr className='border-t-8 border-green-600' />

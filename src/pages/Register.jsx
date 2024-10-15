@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import regImg from "/images/sign-up1.jpg"
 import * as Yup from 'yup';
+import { Helmet } from "react-helmet-async";
 
 const Register = () => {
     const navigate = useNavigate();
@@ -58,6 +59,9 @@ const Register = () => {
     }
     return (
         <div className="flex flex-col lg:flex-row-reverse justify-between items-center w-full rounded-md sm:p-10">
+            <Helmet>
+                <title>ProjectBucket | Register</title>
+            </Helmet>
             <div className="hidden lg:flex w-3/6 h-[500px]">
                 <img src={regImg} className="h-full object-cover"></img>
             </div>

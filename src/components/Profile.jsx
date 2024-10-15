@@ -1,13 +1,17 @@
+import { Helmet } from "react-helmet-async";
 
 const Profile = () => {
     return (
-        <div className='flex flex-col lg:flex-row gap-5 p-10'>
-            <div className='flex flex-row lg:flex-col items-center gap-5'>
+        <div className='flex flex-col lg:flex-row gap-5 p-5 lg:p-10'>
+            <Helmet>
+                <title>ProjectBucket | Profile</title>
+            </Helmet>
+            <div className='flex flex-row lg:flex-col items-center lg:gap-5'>
                 <div className="flex flex-col justify-center max-w-xs p-6 rounded-xl sm:px-12">
                     <img src="https://i.ibb.co.com/ygwnDwV/face1.jpg" alt="" className="w-32 h-32 mx-auto rounded-full dark:bg-gray-500 aspect-square" />
                     <div className="space-y-4 text-center divide-y">
                         <div className="my-2 space-y-1">
-                            <h2 className="text-xl font-semibold sm:text-2xl">Leroy Jenkins</h2>
+                            <h2 className="text-xl font-semibold sm:text-2xl">John Doe</h2>
                             <p className="px-5 text-xs sm:text-base dark:text-gray-600">Full-stack developer</p>
                         </div>
                         <div className="flex justify-center pt-2 space-x-4 align-center">
@@ -18,6 +22,7 @@ const Profile = () => {
                         </div>
                     </div>
                 </div>
+                {/* Contact Information */}
                 <div className="text-left">
                     <div className="w-full my-6 flex justify-between">
                         <div className="space-y-2 font-semibold px-3">
@@ -36,6 +41,7 @@ const Profile = () => {
                     </div>
                 </div>
             </div>
+            {/* User Information */}
             <div className="text-center mb-5 lg:mb-0 w-4/5 lg:w-2/5">
                 <div className="text-left ml-6 md:ml-10 lg:ml-12">
                     <p className="mt-5 mb-3 text-2xl font-bold">User Information </p>

@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
@@ -11,6 +12,9 @@ const UpdateProfile = () => {
     }
     return (
         <div className="flex flex-col max-w-4xl mx-auto p-6 rounded-md">
+            <Helmet>
+                <title>ProjectBucket | Update</title>
+            </Helmet>
             <div className="mb-8 text-center">
                 <h1 className="my-3 text-3xl font-bold text-[#124E66]">Update Your Profile</h1>
             </div>
