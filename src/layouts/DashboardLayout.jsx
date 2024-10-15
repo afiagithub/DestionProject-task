@@ -32,7 +32,7 @@ const DashboardLayout = () => {
             </div>
             
             {/* Dynamic Content */}
-            <div className='flex-1 bg-purple-800'>
+            <div className='flex-1'>
                 <Outlet />
             </div>
         </div>
