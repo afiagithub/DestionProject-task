@@ -12,7 +12,7 @@ const DashboardMenu = () => {
         navigate('/')
     }
     return (
-        <div className="flex flex-col justify-between">
+        <div className="flex flex-col">
             <div>
                 <h2 className="text-2xl font-bold mb-5">Welcome Back, User</h2>
                 <hr />

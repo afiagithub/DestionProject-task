@@ -2,7 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../layouts/MainLayout";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
-import UserDashboard from "../pages/UserDashboard";
+import UserDashboard from "../components/UserDashboard";
 import DashboardLayout from "../layouts/DashboardLayout";
 import Profile from "../components/Profile";
 
