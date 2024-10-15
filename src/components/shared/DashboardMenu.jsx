@@ -1,10 +1,16 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { IoLogInOutline } from "react-icons/io5";
 import { toast } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 
 const DashboardMenu = () => {
+    const navigate = useNavigate();
+
+    const handleLogOut = () => {
+        toast.info("Logged Out")
+        navigate('/')
+    }
     return (
         <div className="flex flex-col justify-between">
             <div>
@@ -19,8 +25,8 @@ const DashboardMenu = () => {
             <div>
                 <hr />
                 <ul className="font-semibold space-y-2 font-nun my-4">
-                    <li><Link to={'/'} className="flex flex-row items-center gap-2">
-                        LogOut <IoLogInOutline className="text-xl" /></Link></li>
+                    <li><button onClick={handleLogOut} className="flex flex-row items-center gap-2">
+                        LogOut <IoLogInOutline className="text-xl" /></button></li>
                 </ul>
             </div>
         </div>
